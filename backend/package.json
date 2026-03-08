@@ -1,0 +1,14 @@
+{
+  "name": "noc-backend",
+  "version": "1.0.0",
+  "description": "NOC Flow Engine",
+  "main": "src/app.js",
+  "scripts": {
+    "start": "node src/app.js",
+    "dev": "node src/app.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.6",
+    "express": "^5.2.1"
+  }
+}
