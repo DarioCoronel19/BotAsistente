@@ -1,21 +1,170 @@
 {
   "module": "diagnosis",
+  "name": "M2 - Diagnóstico Técnico",
+  "description": "Diagnóstico técnico del incidente reportado",
   "steps": [
     {
-      "id": "identify_issue",
-      "message": "¿La falla está afectando a múltiples clientes?",
+      "id": "start_diagnosis",
+      "message": "Iniciando diagnóstico técnico. Por favor, ejecute las siguientes verificaciones.",
       "options": [
         {
-          "label": "Sí",
+          "label": "Iniciar Diagnóstico",
+          "value": "start",
+          "next_module": "diagnosis",
+          "next_step": "validate_tech_info"
+        }
+      ]
+    },
+    {
+      "id": "validate_tech_info",
+      "message": "Validando información técnica del cliente...",
+      "options": [
+        {
+          "label": "Continuar",
+          "value": "continue",
+          "next_module": "diagnosis",
+          "next_step": "execute_diagnosis"
+        }
+      ]
+    },
+    {
+      "id": "execute_diagnosis",
+      "message": "Ejecutando diagnóstico: Verificando estado de equipos, conectividad y servicios.",
+      "options": [
+        {
+          "label": "Ejecutar",
+          "value": "execute",
+          "next_module": "diagnosis",
+          "next_step": "identify_cause"
+        }
+      ]
+    },
+    {
+      "id": "identify_cause",
+      "message": "¿Se logró identificar la causa raíz del problema?",
+      "options": [
+        {
+          "label": "Sí, causa identificada",
           "value": "yes",
-          "next_module": "network_checks"
+          "next_module": "diagnosis",
+          "next_step": "document_root_cause"
         },
         {
-          "label": "No",
+          "label": "No, no se identificó",
           "value": "no",
-          "next_module": "device_checks"
+          "next_module": "diagnosis",
+          "next_step": "request_more_logs"
+        }
+      ]
+    },
+    {
+      "id": "request_more_logs",
+      "message": "Se requiere más información. Por favor, solicite logs adicionales al cliente.",
+      "options": [
+        {
+          "label": "Solicitar Logs",
+          "value": "request",
+          "next_module": "diagnosis",
+          "next_step": "reanalyze"
+        }
+      ]
+    },
+    {
+      "id": "reanalyze",
+      "message": "¿Ya dispone de los logs solicitados?",
+      "options": [
+        {
+          "label": "Sí, tengo los logs",
+          "value": "yes",
+          "next_module": "diagnosis",
+          "next_step": "execute_diagnosis"
+        },
+        {
+          "label": "No, aún no",
+          "value": "no",
+          "next_module": "diagnosis",
+          "next_step": "reanalyze"
+        }
+      ]
+    },
+    {
+      "id": "document_root_cause",
+      "message": "Causa raíz documentada. Ahora se aplicará la solución.",
+      "options": [
+        {
+          "label": "Continuar",
+          "value": "continue",
+          "next_module": "diagnosis",
+          "next_step": "apply_solution"
+        }
+      ]
+    },
+    {
+      "id": "apply_solution",
+      "message": "Aplicando solución técnica...",
+      "options": [
+        {
+          "label": "Aplicar",
+          "value": "apply",
+          "next_module": "diagnosis",
+          "next_step": "validate_service"
+        }
+      ]
+    },
+    {
+      "id": "validate_service",
+      "message": "Validando que el servicio haya sido restaurado correctamente.",
+      "options": [
+        {
+          "label": "Validar",
+          "value": "validate",
+          "next_module": "diagnosis",
+          "next_step": "check_service_restored"
+        }
+      ]
+    },
+    {
+      "id": "check_service_restored",
+      "message": "¿El servicio ha sido restaurado correctamente?",
+      "options": [
+        {
+          "label": "Sí, servicio restaurado",
+          "value": "yes",
+          "next_module": "correction",
+          "next_step": "start_correction"
+        },
+        {
+          "label": "No, servicio仍有问题",
+          "value": "no",
+          "next_module": "escalation",
+          "next_step": "escalate_issue"
+        }
+      ]
+    },
+    {
+      "id": "analyze_saturation",
+      "message": "Analizando causa de saturación detecteda en la red...",
+      "options": [
+        {
+          "label": "Analizar",
+          "value": "analyze",
+          "next_module": "diagnosis",
+          "next_step": "adjust_resources"
+        }
+      ]
+    },
+    {
+      "id": "adjust_resources",
+      "message": "Ajustando recursos de red para resolver la saturación.",
+      "options": [
+        {
+          "label": "Ajustar Recursos",
+          "value": "adjust",
+          "next_module": "diagnosis",
+          "next_step": "validate_service"
         }
       ]
     }
   ]
 }
+

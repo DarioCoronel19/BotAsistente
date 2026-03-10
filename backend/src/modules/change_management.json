@@ -1,0 +1,158 @@
+{
+  "module": "change_management",
+  "name": "M4 - Gestión de Cambios",
+  "description": "Gestión de cambios de configuración",
+  "steps": [
+    {
+      "id": "detect_change_need",
+      "message": "Se ha detectado la necesidad de un cambio. ¿Desea registrar un cambio formal?",
+      "options": [
+        {
+          "label": "Sí, registrar cambio",
+          "value": "yes",
+          "next_module": "change_management",
+          "next_step": "register_change"
+        },
+        {
+          "label": "No, continuar sin registro",
+          "value": "no",
+          "next_module": "evidence",
+          "next_step": "start_evidence"
+        }
+      ]
+    },
+    {
+      "id": "register_change",
+      "message": "Registrando cambio en el sistema. Por favor proporcione:\n- Descripción del cambio:\n-理由 del cambio:\n- Impacto esperado:",
+      "options": [
+        {
+          "label": "Registrar",
+          "value": "register",
+          "next_module": "change_management",
+          "next_step": "evaluate_impact"
+        }
+      ]
+    },
+    {
+      "id": "evaluate_impact",
+      "message": "Evaluando impacto del cambio en los servicios...",
+      "options": [
+        {
+          "label": "Evaluar Impacto",
+          "value": "evaluate",
+          "next_module": "change_management",
+          "next_step": "check_approved"
+        }
+      ]
+    },
+    {
+      "id": "check_approved",
+      "message": "¿El cambio ha sido aprobado por el responsable?",
+      "options": [
+        {
+          "label": "Sí, aprobado",
+          "value": "yes",
+          "next_module": "change_management",
+          "next_step": "plan_implementation"
+        },
+        {
+          "label": "No aprobado",
+          "value": "no",
+          "next_module": "change_management",
+          "next_step": "cancel_change"
+        }
+      ]
+    },
+    {
+      "id": "cancel_change",
+      "message": "Cambio cancelado. Volviendo al flujo principal.",
+      "options": [
+        {
+          "label": "Continuar",
+          "value": "continue",
+          "next_module": "evidence",
+          "next_step": "start_evidence"
+        }
+      ]
+    },
+    {
+      "id": "plan_implementation",
+      "message": "Planificando implementación del cambio...",
+      "options": [
+        {
+          "label": "Planificar",
+          "value": "plan",
+          "next_module": "change_management",
+          "next_step": "execute_change"
+        }
+      ]
+    },
+    {
+      "id": "execute_change",
+      "message": "Ejecutando cambio de configuración...",
+      "options": [
+        {
+          "label": "Ejecutar",
+          "value": "execute",
+          "next_module": "change_management",
+          "next_step": "validate_service_change"
+        }
+      ]
+    },
+    {
+      "id": "validate_service_change",
+      "message": "Validando que el servicio funcione correctamente después del cambio.",
+      "options": [
+        {
+          "label": "Validar",
+          "value": "validate",
+          "next_module": "change_management",
+          "next_step": "check_works_correctly"
+        }
+      ]
+    },
+    {
+      "id": "check_works_correctly",
+      "message": "¿El servicio funciona correctamente después del cambio?",
+      "options": [
+        {
+          "label": "Sí, funciona bien",
+          "value": "yes",
+          "next_module": "change_management",
+          "next_step": "document_change"
+        },
+        {
+          "label": "No, hay problemas",
+          "value": "no",
+          "next_module": "change_management",
+          "next_step": "rollback_change"
+        }
+      ]
+    },
+    {
+      "id": "rollback_change",
+      "message": "Ejecutando rollback del cambio...",
+      "options": [
+        {
+          "label": "Rollback",
+          "value": "rollback",
+          "next_module": "evidence",
+          "next_step": "start_evidence"
+        }
+      ]
+    },
+    {
+      "id": "document_change",
+      "message": "Documentando cambio completado.",
+      "options": [
+        {
+          "label": "Documentar",
+          "value": "document",
+          "next_module": "evidence",
+          "next_step": "start_evidence"
+        }
+      ]
+    }
+  ]
+}
+

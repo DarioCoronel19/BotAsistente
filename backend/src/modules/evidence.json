@@ -1,0 +1,56 @@
+{
+  "module": "evidence",
+  "name": "M5 - Registro de Evidencias",
+  "description": "Registro de evidencias y documentación del proceso",
+  "steps": [
+    {
+      "id": "start_evidence",
+      "message": "Iniciando registro de evidencias del caso.",
+      "options": [
+        {
+          "label": "Iniciar Registro",
+          "value": "start",
+          "next_module": "evidence",
+          "next_step": "generate_documentation"
+        }
+      ]
+    },
+    {
+      "id": "generate_documentation",
+      "message": "Generando documentación del caso...",
+      "options": [
+        {
+          "label": "Generar",
+          "value": "generate",
+          "next_module": "evidence",
+          "next_step": "attach_evidence"
+        }
+      ]
+    },
+    {
+      "id": "attach_evidence",
+      "message": "Adjuntando evidencias (logs, capturas, configuraciones):",
+      "options": [
+        {
+          "label": "Adjuntar Evidencias",
+          "value": "attach",
+          "next_module": "evidence",
+          "next_step": "save_record"
+        }
+      ]
+    },
+    {
+      "id": "save_record",
+      "message": "Guardando registro en la base de datos...",
+      "options": [
+        {
+          "label": "Guardar",
+          "value": "save",
+          "next_module": "closure",
+          "next_step": "start_verification"
+        }
+      ]
+    }
+  ]
+}
+

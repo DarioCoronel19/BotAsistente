@@ -1,10 +1,176 @@
 {
   "module": "closure",
+  "name": "M6-M8 - Cierre del Caso",
+  "description": "Verificación final, confirmación con usuario y cierre del caso",
   "steps": [
     {
-      "id": "close",
-      "message": "Ticket closed successfully.",
-      "options": []
+      "id": "start_verification",
+      "message": "Iniciando verificación final del caso.",
+      "options": [
+        {
+          "label": "Iniciar Verificación",
+          "value": "start",
+          "next_module": "closure",
+          "next_step": "review_case"
+        }
+      ]
+    },
+    {
+      "id": "review_case",
+      "message": "Revisando caso: Verificando solución aplicada y documentación.",
+      "options": [
+        {
+          "label": "Revisar Caso",
+          "value": "review",
+          "next_module": "closure",
+          "next_step": "validate_solution"
+        }
+      ]
+    },
+    {
+      "id": "validate_solution",
+      "message": "Validando cumplimiento de la solución.",
+      "options": [
+        {
+          "label": "Validar",
+          "value": "validate",
+          "next_module": "closure",
+          "next_step": "check_sla"
+        }
+      ]
+    },
+    {
+      "id": "check_sla",
+      "message": "Verificando cumplimiento del SLA establecido.",
+      "options": [
+        {
+          "label": "Verificar SLA",
+          "value": "check",
+          "next_module": "closure",
+          "next_step": "sla_compliant"
+        }
+      ]
+    },
+    {
+      "id": "sla_compliant",
+      "message": "¿El caso cumple con el SLA establecido?",
+      "options": [
+        {
+          "label": "Sí, cumple SLA",
+          "value": "yes",
+          "next_module": "closure",
+          "next_step": "contact_user"
+        },
+        {
+          "label": "No, excede SLA",
+          "value": "no",
+          "next_module": "closure",
+          "next_step": "reopen_case"
+        }
+      ]
+    },
+    {
+      "id": "reopen_case",
+      "message": "El caso excede el SLA. Reabriendo caso para atención prioritaria.",
+      "options": [
+        {
+          "label": "Reabrir Caso",
+          "value": "reopen",
+          "next_module": "diagnosis",
+          "next_step": "start_diagnosis"
+        }
+      ]
+    },
+    {
+      "id": "contact_user",
+      "message": "Contactando al usuario para confirmar la solución.",
+      "options": [
+        {
+          "label": "Contactar",
+          "value": "contact",
+          "next_module": "closure",
+          "next_step": "user_confirmation"
+        }
+      ]
+    },
+    {
+      "id": "user_confirmation",
+      "message": "Esperando confirmación del usuario sobre el funcionamiento del servicio.",
+      "options": [
+        {
+          "label": "Esperar",
+          "value": "wait",
+          "next_module": "closure",
+          "next_step": "validate_functionality"
+        }
+      ]
+    },
+    {
+      "id": "validate_functionality",
+      "message": "Por favor, confirme si el servicio está funcionando correctamente.",
+      "options": [
+        {
+          "label": "Sí, funciona bien",
+          "value": "yes",
+          "next_module": "closure",
+          "next_step": "authorize_closure"
+        },
+        {
+          "label": "No, aún hay problemas",
+          "value": "no",
+          "next_module": "closure",
+          "next_step": "reopen_for_issues"
+        }
+      ]
+    },
+    {
+      "id": "reopen_for_issues",
+      "message": "El usuario reporta que aún hay problemas. Reabriendo ticket.",
+      "options": [
+        {
+          "label": "Reabrir Ticket",
+          "value": "reopen",
+          "next_module": "diagnosis",
+          "next_step": "start_diagnosis"
+        }
+      ]
+    },
+    {
+      "id": "authorize_closure",
+      "message": "Usuario ha autorizado el cierre del caso.",
+      "options": [
+        {
+          "label": "Autorizar Cierre",
+          "value": "authorize",
+          "next_module": "closure",
+          "next_step": "finalize_closure"
+        }
+      ]
+    },
+    {
+      "id": "finalize_closure",
+      "message": "Documentando solución definitiva y actualizando base de conocimiento.",
+      "options": [
+        {
+          "label": "Finalizar",
+          "value": "finalize",
+          "next_module": "closure",
+          "next_step": "close_ticket"
+        }
+      ]
+    },
+    {
+      "id": "close_ticket",
+      "message": "Ticket cerrado exitosamente. Gracias por utilizar el sistema de soporte NOC.",
+      "options": [
+        {
+          "label": "Cerrar",
+          "value": "close",
+          "next_module": "intake",
+          "next_step": "welcome"
+        }
+      ]
     }
   ]
 }
+
