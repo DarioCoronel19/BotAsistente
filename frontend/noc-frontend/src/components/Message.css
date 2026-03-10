@@ -1,0 +1,174 @@
+/* ============================================
+   Message - Estilos de Mensajes
+   ============================================ */
+
+.message {
+  padding: 14px 18px;
+  border-radius: 20px;
+  max-width: 100%;
+  word-wrap: break-word;
+  line-height: 1.6;
+  box-shadow: var(--shadow-sm);
+  transition: all var(--transition-fast);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Mensaje del Bot */
+.message.bot {
+  background: var(--bot-msg-bg);
+  color: var(--bot-msg-text);
+  border-bottom-left-radius: 6px;
+  border: 2px solid var(--accent-color);
+  outline: 2px solid var(--accent-color);
+  outline-offset: -1px;
+}
+
+.message.bot::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(79, 70, 229, 0.2), transparent);
+}
+
+.message.bot:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-1px);
+}
+
+/* Mensaje del Usuario */
+.message.user {
+  background: var(--user-msg-bg);
+  color: var(--user-msg-text);
+  border-bottom-right-radius: 6px;
+  box-shadow: var(--shadow-md);
+}
+
+.message.user:hover {
+  background: var(--user-msg-bg-hover);
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-1px);
+}
+
+/* Párrafo del mensaje */
+.message p {
+  margin: 0;
+  font-size: 0.9375rem;
+}
+
+/*strong y emphasis */
+.message p strong,
+.message p b {
+  font-weight: 600;
+}
+
+.message p em,
+.message p i {
+  font-style: italic;
+}
+
+/* Listas en mensajes */
+.message ul,
+.message ol {
+  margin: 0.5rem 0 0 0;
+  padding-left: 1.25rem;
+}
+
+.message li {
+  margin: 0.25rem 0;
+}
+
+/* Código en mensajes */
+.message code {
+  background: var(--bg-tertiary);
+  color: var(--accent-color);
+  padding: 0.125rem 0.375rem;
+  border-radius: 4px;
+  font-family: 'Fira Code', 'Consolas', monospace;
+  font-size: 0.875em;
+}
+
+.message pre {
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 0.75rem;
+  margin: 0.5rem 0;
+  overflow-x: auto;
+}
+
+.message pre code {
+  background: transparent;
+  padding: 0;
+  color: var(--text-primary);
+}
+
+/* ============================================
+   Animación de Entrada
+   ============================================ */
+
+.message {
+  animation: messagePop 0.3s ease forwards;
+}
+
+@keyframes messagePop {
+  0% {
+    opacity: 0;
+    transform: scale(0.9) translateY(8px);
+  }
+  60% {
+    transform: scale(1.02) translateY(-2px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+/* ============================================
+   Indicador de Estado (enviado, leído)
+   ============================================ */
+
+.message-status {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  margin-top: 0.25rem;
+}
+
+.message-status svg {
+  width: 14px;
+  height: 14px;
+}
+
+/* ============================================
+   Responsive
+   ============================================ */
+
+@media (max-width: 600px) {
+  .message {
+    padding: 12px 14px;
+    border-radius: 16px;
+  }
+  
+  .message p {
+    font-size: 0.875rem;
+  }
+}
+
+@media (max-width: 400px) {
+  .message {
+    padding: 10px 12px;
+    border-radius: 14px;
+  }
+  
+  .message p {
+    font-size: 0.8125rem;
+  }
+}
+

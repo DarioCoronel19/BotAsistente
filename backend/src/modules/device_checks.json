@@ -1,0 +1,21 @@
+{
+  "module": "device_checks",
+  "steps": [
+    {
+      "id": "check_device_power",
+      "message": "Is the modem/router powered on?",
+      "options": [
+        {
+          "label": "Yes",
+          "value": "yes",
+          "next_module": "network_checks"
+        },
+        {
+          "label": "No",
+          "value": "no",
+          "next_module": "closure"
+        }
+      ]
+    }
+  ]
+}

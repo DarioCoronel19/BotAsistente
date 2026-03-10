@@ -1,0 +1,21 @@
+{
+  "module": "network_checks",
+  "steps": [
+    {
+      "id": "check_network",
+      "message": "Are there alarms in the monitoring system?",
+      "options": [
+        {
+          "label": "Yes",
+          "value": "yes",
+          "next_module": "escalation"
+        },
+        {
+          "label": "No",
+          "value": "no",
+          "next_module": "carrier"
+        }
+      ]
+    }
+  ]
+}

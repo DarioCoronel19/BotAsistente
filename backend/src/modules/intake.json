@@ -1,0 +1,27 @@
+{
+  "module": "intake",
+  "steps": [
+    {
+      "id": "greeting",
+      "message": "Bienvenido al Soporte NOC. ¿Qué problema está experimentando el cliente?",
+      "options": [
+        {
+          "label": "Sin Internet",
+          "value": "no_internet",
+          "next_module": "diagnosis"
+        },
+        {
+          "label": "Internet Lento",
+          "value": "slow_internet",
+          "next_module": "diagnosis"
+        },
+        {
+          "label": "Problema con Dispositivo",
+          "value": "device_issue",
+          "next_module": "device_checks"
+        }
+      ]
+    }
+  ]
+}
+

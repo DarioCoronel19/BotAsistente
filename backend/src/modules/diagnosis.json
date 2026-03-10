@@ -1,0 +1,21 @@
+{
+  "module": "diagnosis",
+  "steps": [
+    {
+      "id": "identify_issue",
+      "message": "¿La falla está afectando a múltiples clientes?",
+      "options": [
+        {
+          "label": "Sí",
+          "value": "yes",
+          "next_module": "network_checks"
+        },
+        {
+          "label": "No",
+          "value": "no",
+          "next_module": "device_checks"
+        }
+      ]
+    }
+  ]
+}

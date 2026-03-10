@@ -1,0 +1,10 @@
+{
+  "module": "closure",
+  "steps": [
+    {
+      "id": "close",
+      "message": "Ticket closed successfully.",
+      "options": []
+    }
+  ]
+}

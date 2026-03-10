@@ -1,68 +1,244 @@
+/* ============================================
+   Variables CSS - Tema Claro y Oscuro Profesional
+   ============================================ */
+
 :root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
+  /* ===== TEMA CLARO ===== */
+  /* Colores base */
+  --bg-primary: #f0f2f5;
+  --bg-secondary: #ffffff;
+  --bg-tertiary: #e8eaed;
+  --bg-glass: rgba(255, 255, 255, 0.85);
+  
+  /* Texto - Mejor contraste */
+  --text-primary: #1a1a2e;
+  --text-secondary: #4a4a68;
+  --text-muted: #6b7280;
+  --text-inverse: #ffffff;
+  
+  /* Acentos */
+  --accent-color: #4f46e5;
+  --accent-hover: #4338ca;
+  --accent-light: #eef2ff;
+  --accent-gradient: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+  
+  /* Bordes y sombras - CONTORNO MORADO SIEMPRE VISIBLE */
+  --border-color: #4f46e5;
+  --border-focus: #4f46e5;
+  --border-width: 2px;
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.08);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.15), 0 2px 4px -1px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.15), 0 4px 6px -2px rgba(0, 0, 0, 0.08);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.15), 0 10px 10px -5px rgba(0, 0, 0, 0.05);
+  
+  /* Mensajes - Mejor contraste CON BORDES VISIBLES */
+  --user-msg-bg: #4f46e5;
+  --user-msg-text: #ffffff;
+  --user-msg-bg-hover: #4338ca;
+  --bot-msg-bg: #ffffff;
+  --bot-msg-text: #1e293b;
+  --bot-msg-border: #64748b;
+  
+  /* Estados */
+  --success-color: #10b981;
+  --error-color: #ef4444;
+  --warning-color: #f59e0b;
+  --info-color: #3b82f6;
+  
+  /* Efectos */
+  --glass-blur: blur(12px);
+  --transition-fast: 150ms ease;
+  --transition-normal: 250ms ease;
+  --transition-slow: 350ms ease;
+  
+  /* Esquema de color */
+  color-scheme: light;
+  
+  /* Tipografía */
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  line-height: 1.6;
   font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
+/* ===== TEMA OSCURO ===== */
+[data-theme="dark"] {
+  /* Colores base */
+  --bg-primary: #0f0f23;
+  --bg-secondary: #1a1a2e;
+  --bg-tertiary: #16213e;
+  --bg-glass: rgba(26, 26, 46, 0.85);
+  
+  /* Texto - Mejor contraste */
+  --text-primary: #f1f5f9;
+  --text-secondary: #cbd5e1;
+  --text-muted: #94a3b8;
+  --text-inverse: #0f172a;
+  
+  /* Acentos */
+  --accent-color: #818cf8;
+  --accent-hover: #a5b4fc;
+  --accent-light: #312e81;
+  --accent-gradient: linear-gradient(135deg, #818cf8 0%, #a78bfa 100%);
+  
+  /* Bordes y sombras - CONTORNO MORADO SIEMPRE VISIBLE */
+  --border-color: #4f46e5;
+  --border-focus: #818cf8;
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.3), 0 1px 2px rgba(0, 0, 0, 0.2);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.4), 0 2px 4px -1px rgba(0, 0, 0, 0.3);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.5), 0 4px 6px -2px rgba(0, 0, 0, 0.3);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.5), 0 10px 10px -5px rgba(0, 0, 0, 0.3);
+  
+  /* Mensajes - Mejor contraste */
+  --user-msg-bg: #6366f1;
+  --user-msg-text: #ffffff;
+  --user-msg-bg-hover: #818cf8;
+  --bot-msg-bg: #1e293b;
+  --bot-msg-text: #f1f5f9;
+  --bot-msg-border: #334155;
+  
+  /* Estados */
+  --success-color: #34d399;
+  --error-color: #f87171;
+  --warning-color: #fbbf24;
+  --info-color: #60a5fa;
+  
+  /* Esquema de color */
+  color-scheme: dark;
 }
-a:hover {
-  color: #535bf2;
+
+/* ============================================
+   Estilos Base
+   ============================================ */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
 }
 
 body {
   margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
   min-height: 100vh;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  transition: 
+    background-color var(--transition-normal),
+    color var(--transition-normal);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
+
+/* ============================================
+   Scrollbar Personalizada
+   ============================================ */
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-tertiary);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--text-muted);
+  border-radius: 4px;
+  transition: background var(--transition-fast);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-secondary);
+}
+
+/* Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--text-muted) var(--bg-tertiary);
+}
+
+/* ============================================
+   Estilos de Botones Base
+   ============================================ */
 
 button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
   font-family: inherit;
-  background-color: #1a1a1a;
   cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+  border: none;
+  outline: none;
+  transition: all var(--transition-fast);
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
+button:focus-visible {
+  outline: 2px solid var(--accent-color);
+  outline-offset: 2px;
+}
+
+button:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+/* ============================================
+   Selección de Texto
+   ============================================ */
+
+::selection {
+  background: var(--accent-color);
+  color: white;
+}
+
+::-moz-selection {
+  background: var(--accent-color);
+  color: white;
+}
+
+/* ============================================
+   Utilidades
+   ============================================ */
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Animaciones globales */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
   }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+

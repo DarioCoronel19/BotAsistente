@@ -1,0 +1,16 @@
+{
+  "module": "field_service",
+  "steps": [
+    {
+      "id": "dispatch",
+      "message": "Dispatch field technician?",
+      "options": [
+        {
+          "label": "Yes",
+          "value": "yes",
+          "next_module": "closure"
+        }
+      ]
+    }
+  ]
+}

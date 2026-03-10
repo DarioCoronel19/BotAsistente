@@ -1,0 +1,197 @@
+/* ============================================
+   Options - Botones de Opciones
+   ============================================ */
+
+.options-container {
+  margin-top: 0.5rem;
+}
+
+.options-label {
+  display: block;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  margin-bottom: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.options-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.625rem;
+}
+
+/* ============================================
+   Botón de Opción
+   ============================================ */
+
+.option-button {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1rem;
+  background: var(--bg-secondary);
+  border: 2px solid var(--accent-color);
+  border-radius: 14px;
+  color: var(--text-primary);
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  box-shadow: var(--shadow-sm);
+  position: relative;
+  overflow: hidden;
+  outline: 2px solid var(--accent-color);
+  outline-offset: 1px;
+}
+
+.option-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: var(--accent-gradient);
+  opacity: 0;
+  transition: all var(--transition-fast);
+  z-index: 0;
+}
+
+.option-button:hover:not(:disabled) {
+  background: var(--accent-light);
+  border-color: var(--accent-color);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+  color: var(--accent-color);
+}
+
+.option-button:hover:not(:disabled)::before {
+  opacity: 0.1;
+  left: 0;
+}
+
+.option-button:active:not(:disabled) {
+  transform: translateY(0);
+  box-shadow: var(--shadow-sm);
+}
+
+.option-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Icono de la opción */
+.option-icon {
+  font-size: 1.125rem;
+  line-height: 1;
+  position: relative;
+  z-index: 1;
+  transition: transform var(--transition-fast);
+}
+
+.option-button:hover:not(:disabled) .option-icon {
+  transform: scale(1.2);
+}
+
+/* Etiqueta de la opción */
+.option-label {
+  white-space: nowrap;
+  position: relative;
+  z-index: 1;
+}
+
+/* ============================================
+   Animación de Entrada
+   ============================================ */
+
+.option-button {
+  animation: optionFadeIn 0.3s ease backwards;
+}
+
+@keyframes optionFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Delay para cada botón */
+.option-button:nth-child(1) { animation-delay: 0s; }
+.option-button:nth-child(2) { animation-delay: 0.05s; }
+.option-button:nth-child(3) { animation-delay: 0.1s; }
+.option-button:nth-child(4) { animation-delay: 0.15s; }
+.option-button:nth-child(5) { animation-delay: 0.2s; }
+.option-button:nth-child(6) { animation-delay: 0.25s; }
+.option-button:nth-child(7) { animation-delay: 0.3s; }
+.option-button:nth-child(8) { animation-delay: 0.35s; }
+
+/* ============================================
+   Estados Especiales
+   ============================================ */
+
+/* Opción seleccionada */
+.option-button.selected {
+  background: var(--accent-color);
+  border-color: var(--accent-color);
+  color: white;
+}
+
+/* Opción de peligro/peligro */
+.option-button.danger {
+  border-color: var(--error-color);
+}
+
+.option-button.danger:hover:not(:disabled) {
+  background: rgba(239, 68, 68, 0.1);
+  border-color: var(--error-color);
+  color: var(--error-color);
+}
+
+/* Opción de éxito */
+.option-button.success {
+  border-color: var(--success-color);
+}
+
+.option-button.success:hover:not(:disabled) {
+  background: rgba(16, 185, 129, 0.1);
+  border-color: var(--success-color);
+  color: var(--success-color);
+}
+
+/* ============================================
+   Responsive
+   ============================================ */
+
+@media (max-width: 600px) {
+  .options-grid {
+    flex-direction: column;
+  }
+  
+  .option-button {
+    width: 100%;
+    justify-content: center;
+    padding: 0.875rem 1rem;
+  }
+  
+  .option-label {
+    text-align: center;
+  }
+}
+
+@media (max-width: 400px) {
+  .option-button {
+    font-size: 0.8125rem;
+    padding: 0.75rem 0.875rem;
+  }
+  
+  .option-icon {
+    font-size: 1rem;
+  }
+}
+

@@ -1,0 +1,16 @@
+{
+  "module": "escalation",
+  "steps": [
+    {
+      "id": "escalate",
+      "message": "Problema escalado a NOC Nivel 2.",
+      "options": [
+        {
+          "label": "Cerrar ticket",
+          "value": "close",
+          "next_module": "closure"
+        }
+      ]
+    }
+  ]
+}
