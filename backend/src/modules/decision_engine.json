@@ -1,0 +1,26 @@
+{
+  "module": "decision_engine",
+  "steps": [
+    {
+      "id": "diagnostico",
+      "message": "Determinar la causa probable del problema.",
+      "options": [
+        {
+          "label": "Problema de infraestructura de red",
+          "value": "infraestructura",
+          "next_module": "escalation"
+        },
+        {
+          "label": "Posible problema de carrier",
+          "value": "carrier",
+          "next_module": "carrier"
+        },
+        {
+          "label": "Problema en equipo del cliente",
+          "value": "equipo",
+          "next_module": "fix_actions"
+        }
+      ]
+    }
+  ]
+}

@@ -1,113 +1,137 @@
 /* ============================================
-   Variables CSS - Tema Claro y Oscuro Profesional
+   Variables CSS - Green/Blue Theme (Guía de Capacitación)
    ============================================ */
 
 :root {
-  /* ===== TEMA CLARO ===== */
-  /* Colores base */
-  --bg-primary: #f0f2f5;
+  /* ===== LIGHT THEME ===== */
+  /* Primary Colors - Green */
+  --primary: #22c55e;
+  --primary-dark: #16a34a;
+  --primary-light: #86efac;
+  --primary-bg: #dcfce7;
+  
+  /* Secondary Colors - Blue */
+  --secondary: #3b82f6;
+  --secondary-dark: #2563eb;
+  --secondary-light: #93c5fd;
+  --secondary-bg: #dbeafe;
+  
+  /* Accent (using primary green) */
+  --accent-color: #22c55e;
+  --accent-hover: #16a34a;
+  --accent-light: #dcfce7;
+  --accent-gradient: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);
+  
+  /* Backgrounds */
+  --bg-primary: #f8fafc;
   --bg-secondary: #ffffff;
-  --bg-tertiary: #e8eaed;
+  --bg-tertiary: #f1f5f9;
   --bg-glass: rgba(255, 255, 255, 0.85);
   
-  /* Texto - Mejor contraste */
-  --text-primary: #1a1a2e;
-  --text-secondary: #4a4a68;
-  --text-muted: #6b7280;
+  /* Text - Better contrast */
+  --text-primary: #1e293b;
+  --text-secondary: #64748b;
+  --text-muted: #94a3b8;
   --text-inverse: #ffffff;
   
-  /* Acentos */
-  --accent-color: #4f46e5;
-  --accent-hover: #4338ca;
-  --accent-light: #eef2ff;
-  --accent-gradient: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
-  
-  /* Bordes y sombras - CONTORNO MORADO SIEMPRE VISIBLE */
-  --border-color: #4f46e5;
-  --border-focus: #4f46e5;
+  /* Borders and shadows */
+  --border-color: #e2e8f0;
+  --border-focus: #22c55e;
   --border-width: 2px;
-  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.08);
-  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.15), 0 2px 4px -1px rgba(0, 0, 0, 0.1);
-  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.15), 0 4px 6px -2px rgba(0, 0, 0, 0.08);
-  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.15), 0 10px 10px -5px rgba(0, 0, 0, 0.05);
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
   
-  /* Mensajes - Mejor contraste CON BORDES VISIBLES */
-  --user-msg-bg: #4f46e5;
+  /* Messages - Better contrast WITH VISIBLE BORDERS */
+  --user-msg-bg: #22c55e;
   --user-msg-text: #ffffff;
-  --user-msg-bg-hover: #4338ca;
+  --user-msg-bg-hover: #16a34a;
   --bot-msg-bg: #ffffff;
   --bot-msg-text: #1e293b;
-  --bot-msg-border: #64748b;
+  --bot-msg-border: #e2e8f0;
   
-  /* Estados */
-  --success-color: #10b981;
+  /* States */
+  --success-color: #22c55e;
   --error-color: #ef4444;
   --warning-color: #f59e0b;
   --info-color: #3b82f6;
   
-  /* Efectos */
+  /* Effects */
   --glass-blur: blur(12px);
   --transition-fast: 150ms ease;
   --transition-normal: 250ms ease;
   --transition-slow: 350ms ease;
   
-  /* Esquema de color */
+  /* Color scheme */
   color-scheme: light;
   
-  /* Tipografía */
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  /* Typography */
+  font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
   line-height: 1.6;
   font-weight: 400;
 }
 
-/* ===== TEMA OSCURO ===== */
+/* ===== DARK THEME ===== */
 [data-theme="dark"] {
-  /* Colores base */
-  --bg-primary: #0f0f23;
-  --bg-secondary: #1a1a2e;
-  --bg-tertiary: #16213e;
-  --bg-glass: rgba(26, 26, 46, 0.85);
+  /* Primary Colors - Green */
+  --primary: #22c55e;
+  --primary-dark: #16a34a;
+  --primary-light: #86efac;
+  --primary-bg: #14532d;
   
-  /* Texto - Mejor contraste */
+  /* Secondary Colors - Blue */
+  --secondary: #3b82f6;
+  --secondary-dark: #2563eb;
+  --secondary-light: #93c5fd;
+  --secondary-bg: #1e3a5f;
+  
+  /* Accent */
+  --accent-color: #22c55e;
+  --accent-hover: #86efac;
+  --accent-light: #14532d;
+  --accent-gradient: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);
+  
+  /* Backgrounds */
+  --bg-primary: #0f172a;
+  --bg-secondary: #1e293b;
+  --bg-tertiary: #334155;
+  --bg-glass: rgba(30, 41, 59, 0.85);
+  
+  /* Text - Better contrast */
   --text-primary: #f1f5f9;
-  --text-secondary: #cbd5e1;
-  --text-muted: #94a3b8;
+  --text-secondary: #94a3b8;
+  --text-muted: #64748b;
   --text-inverse: #0f172a;
   
-  /* Acentos */
-  --accent-color: #818cf8;
-  --accent-hover: #a5b4fc;
-  --accent-light: #312e81;
-  --accent-gradient: linear-gradient(135deg, #818cf8 0%, #a78bfa 100%);
+  /* Borders and shadows */
+  --border-color: #334155;
+  --border-focus: #22c55e;
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.4), 0 2px 4px -2px rgba(0, 0, 0, 0.3);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.5), 0 4px 6px -4px rgba(0, 0, 0, 0.3);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.5), 0 8px 10px -6px rgba(0, 0, 0, 0.3);
   
-  /* Bordes y sombras - CONTORNO MORADO SIEMPRE VISIBLE */
-  --border-color: #4f46e5;
-  --border-focus: #818cf8;
-  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.3), 0 1px 2px rgba(0, 0, 0, 0.2);
-  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.4), 0 2px 4px -1px rgba(0, 0, 0, 0.3);
-  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.5), 0 4px 6px -2px rgba(0, 0, 0, 0.3);
-  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.5), 0 10px 10px -5px rgba(0, 0, 0, 0.3);
-  
-  /* Mensajes - Mejor contraste */
-  --user-msg-bg: #6366f1;
+  /* Messages - Better contrast */
+  --user-msg-bg: #22c55e;
   --user-msg-text: #ffffff;
-  --user-msg-bg-hover: #818cf8;
+  --user-msg-bg-hover: #16a34a;
   --bot-msg-bg: #1e293b;
   --bot-msg-text: #f1f5f9;
   --bot-msg-border: #334155;
   
-  /* Estados */
-  --success-color: #34d399;
-  --error-color: #f87171;
-  --warning-color: #fbbf24;
-  --info-color: #60a5fa;
+  /* States */
+  --success-color: #22c55e;
+  --error-color: #ef4444;
+  --warning-color: #f59e0b;
+  --info-color: #3b82f6;
   
-  /* Esquema de color */
+  /* Color scheme */
   color-scheme: dark;
 }
 
 /* ============================================
-   Estilos Base
+   Base Styles
    ============================================ */
 
 * {
@@ -139,7 +163,7 @@ body {
 }
 
 /* ============================================
-   Scrollbar Personalizada
+   Custom Scrollbar
    ============================================ */
 
 ::-webkit-scrollbar {
@@ -169,7 +193,7 @@ body {
 }
 
 /* ============================================
-   Estilos de Botones Base
+   Base Button Styles
    ============================================ */
 
 button {
@@ -191,7 +215,7 @@ button:disabled {
 }
 
 /* ============================================
-   Selección de Texto
+   Text Selection
    ============================================ */
 
 ::selection {
@@ -205,7 +229,7 @@ button:disabled {
 }
 
 /* ============================================
-   Utilidades
+   Utilities
    ============================================ */
 
 .sr-only {
@@ -220,7 +244,7 @@ button:disabled {
   border: 0;
 }
 
-/* Animaciones globales */
+/* Global animations */
 @keyframes fadeIn {
   from { opacity: 0; }
   to { opacity: 1; }

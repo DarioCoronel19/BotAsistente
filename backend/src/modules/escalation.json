@@ -1,68 +1,26 @@
 {
   "module": "escalation",
-  "name": "Escalamiento",
-  "description": "Proceso de escalamiento a niveles superiores de soporte",
   "steps": [
     {
-      "id": "escalate_issue",
-      "message": "El problema requiere escalamiento a NOC Nivel 2 o Ingeniería.",
+      "id": "escalar",
+      "message": "Escalar el problema al equipo correspondiente.",
       "options": [
         {
-          "label": "Escalar a Nivel 2",
-          "value": "level2",
-          "next_module": "escalation",
-          "next_step": "escalate_noc2"
+          "label": "Escalar a ATC",
+          "value": "atc",
+          "next_module": "closure"
         },
         {
-          "label": "Escalar a Ingeniería",
-          "value": "engineering",
-          "next_module": "escalation",
-          "next_step": "escalate_engineering"
-        }
-      ]
-    },
-    {
-      "id": "escalate_noc2",
-      "message": "Escalando problema a NOC Nivel 2. Por favor espere...",
-      "options": [
-        {
-          "label": "Continuar",
-          "value": "continue",
-          "next_module": "escalation",
-          "next_step": "wait_noc2"
-        }
-      ]
-    },
-    {
-      "id": "wait_noc2",
-      "message": "Ticket escalado a NOC Nivel 2. ¿Desea recibir notificaciones de progreso?",
-      "options": [
-        {
-          "label": "Sí, quiero notificaciones",
-          "value": "yes",
-          "next_module": "evidence",
-          "next_step": "start_evidence"
+          "label": "Escalar a N2",
+          "value": "noc_n2",
+          "next_module": "closure"
         },
         {
-          "label": "No, gracias",
-          "value": "no",
-          "next_module": "evidence",
-          "next_step": "start_evidence"
-        }
-      ]
-    },
-    {
-      "id": "escalate_engineering",
-      "message": "Escalando con ingeniería para análisis de falla recurrente. Por favor proporcione historial del caso:",
-      "options": [
-        {
-          "label": "Escalar",
-          "value": "escalate",
-          "next_module": "evidence",
-          "next_step": "start_evidence"
+          "label": "Escalar a N3 / Ingeniería",
+          "value": "noc_n3",
+          "next_module": "closure"
         }
       ]
     }
   ]
 }
-

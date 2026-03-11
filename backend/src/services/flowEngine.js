@@ -26,7 +26,12 @@ function start() {
   }
 
   const module = loadModule("intake")
-  const step = module.steps.find(s => s.id === 'welcome')
+  // Find welcome step or use first step
+  let step = module.steps.find(s => s.id === 'welcome')
+  if (!step) {
+    step = module.steps[0]
+    currentTicket.currentStep = step.id
+  }
 
   return {
     ticket: {
@@ -34,7 +39,7 @@ function start() {
       status: currentTicket.status
     },
     module: module.module,
-    moduleName: module.name,
+    moduleName: module.module,
     step: step.id,
     message: step.message,
     options: step.options
@@ -107,8 +112,6 @@ function next(moduleName, stepId, answer) {
 
   // Calculate SLA for verification step
   if (nextModuleName === 'closure' && nextStepId === 'check_sla') {
-    // SLA deadline would be calculated based on ticket priority
-    // For now, setting a default 24-hour SLA
     const slaHours = 24
     const deadline = new Date()
     deadline.setHours(deadline.getHours() + slaHours)

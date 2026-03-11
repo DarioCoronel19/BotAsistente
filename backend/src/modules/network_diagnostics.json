@@ -1,0 +1,37 @@
+{
+  "module": "network_diagnostics",
+  "steps": [
+    {
+      "id": "verificar_radio_base",
+      "message": "Verificar si la radio base (MU) está en línea.",
+      "options": [
+        {
+          "label": "Radio base caída",
+          "value": "rb_caida",
+          "next_module": "escalation"
+        },
+        {
+          "label": "Radio base operativa",
+          "value": "rb_ok",
+          "next_module": "device_diagnostics"
+        }
+      ]
+    },
+    {
+      "id": "verificar_ruido",
+      "message": "Revisar interferencia o ruido en el canal.",
+      "options": [
+        {
+          "label": "Hay ruido en el canal",
+          "value": "ruido",
+          "next_module": "fix_actions"
+        },
+        {
+          "label": "Canal limpio",
+          "value": "ok",
+          "next_module": "device_diagnostics"
+        }
+      ]
+    }
+  ]
+}

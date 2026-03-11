@@ -1,5 +1,5 @@
 /* ============================================
-   ChatWindow - Contenedor del Chat
+   ChatWindow - Chat Container (Green/Blue Theme)
    ============================================ */
 
 .chat-container {
@@ -13,9 +13,7 @@
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  border: var(--border-width, 2px) solid var(--accent-color);
-  outline: 3px solid var(--accent-color);
-  outline-offset: -3px;
+  border: 1px solid var(--border-color);
   transition: all var(--transition-normal);
   position: relative;
 }
@@ -32,7 +30,7 @@
 }
 
 /* ============================================
-   Área de Mensajes
+   Messages Area
    ============================================ */
 
 .chat-messages {
@@ -46,7 +44,7 @@
   position: relative;
 }
 
-/* Gradiente de fondo sutil */
+/* Subtle gradient background */
 .chat-messages::before {
   content: '';
   position: absolute;
@@ -55,8 +53,8 @@
   right: 0;
   bottom: 0;
   background: 
-    radial-gradient(ellipse at top right, rgba(79, 70, 229, 0.03) 0%, transparent 50%),
-    radial-gradient(ellipse at bottom left, rgba(124, 58, 237, 0.02) 0%, transparent 50%);
+    radial-gradient(circle at top right, rgba(34, 197, 94, 0.03) 0%, transparent 50%),
+    radial-gradient(circle at bottom left, rgba(59, 130, 246, 0.02) 0%, transparent 50%);
   pointer-events: none;
   z-index: 0;
 }
@@ -67,7 +65,7 @@
 }
 
 /* ============================================
-   Wrapper de Mensaje
+   Message Wrapper
    ============================================ */
 
 .message-wrapper {
@@ -94,7 +92,7 @@
 }
 
 /* ============================================
-   Avatares
+   Avatars
    ============================================ */
 
 .bot-avatar,
@@ -111,7 +109,7 @@
 }
 
 .bot-avatar {
-  background: var(--accent-gradient);
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
   color: white;
 }
 
@@ -139,7 +137,7 @@
 }
 
 /* ============================================
-   Contenido del Mensaje
+   Message Content
    ============================================ */
 
 .message-content {
@@ -150,7 +148,7 @@
 }
 
 /* ============================================
-   Indicador de Escritura
+   Typing Indicator
    ============================================ */
 
 .typing-indicator {
@@ -158,7 +156,7 @@
   gap: 5px;
   padding: 14px 18px;
   background: var(--bot-msg-bg);
-  border: 2px solid var(--accent-color);
+  border: 2px solid var(--primary);
   border-radius: 18px;
   width: fit-content;
 }
@@ -237,7 +235,7 @@
 }
 
 /* ============================================
-   Área de Entrada de Texto
+   Text Input Area
    ============================================ */
 
 .chat-input-container {
@@ -255,13 +253,11 @@
   border-radius: 16px;
   padding: 0.375rem;
   transition: all var(--transition-fast);
-  outline: 2px solid var(--border-color);
-  outline-offset: 1px;
 }
 
 .chat-input-wrapper:focus-within {
-  border-color: var(--accent-color);
-  box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.15);
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.15);
 }
 
 .chat-input {
@@ -285,7 +281,7 @@
   cursor: not-allowed;
 }
 
-/* Botón de enviar */
+/* Send button */
 .chat-send-button {
   width: 44px;
   height: 44px;
@@ -319,7 +315,7 @@
   background: var(--bg-tertiary);
 }
 
-/* Hint de ayuda */
+/* Help hint */
 .chat-input-hint {
   display: block;
   margin-top: 0.5rem;

@@ -2,12 +2,12 @@
   "module": "field_service",
   "steps": [
     {
-      "id": "dispatch",
-      "message": "Dispatch field technician?",
+      "id": "visita_tecnica",
+      "message": "Se requiere revisión física en sitio.",
       "options": [
         {
-          "label": "Yes",
-          "value": "yes",
+          "label": "Programar visita técnica",
+          "value": "visita",
           "next_module": "closure"
         }
       ]

@@ -1,176 +1,21 @@
 {
   "module": "intake",
-  "name": "M1 - Recepción y Validación Inicial del Ticket",
-  "description": "Recibo y validación inicial del ticket de soporte",
   "steps": [
     {
-      "id": "welcome",
-      "message": "Bienvenido al Sistema de Soporte NOC. ¿Qué problema está experimentando el cliente?",
+      "id": "verificar_cliente",
+      "message": "Verificar si el cliente está activo en Odoo.",
       "options": [
         {
-          "label": "Sin Internet",
-          "value": "no_internet",
-          "next_module": "intake",
-          "next_step": "validate_ticket"
+          "label": "Cliente activo",
+          "value": "activo",
+          "next_module": "network_diagnostics"
         },
         {
-          "label": "Internet Lento",
-          "value": "slow_internet",
-          "next_module": "intake",
-          "next_step": "validate_ticket"
-        },
-        {
-          "label": "Problema con Dispositivo",
-          "value": "device_issue",
-          "next_module": "intake",
-          "next_step": "validate_ticket"
-        },
-        {
-          "label": "Corte de Servicio",
-          "value": "service_outage",
-          "next_module": "intake",
-          "next_step": "validate_ticket"
-        },
-        {
-          "label": "Otro Problema",
-          "value": "other",
-          "next_module": "intake",
-          "next_step": "validate_ticket"
-        }
-      ]
-    },
-    {
-      "id": "validate_ticket",
-      "message": "Por favor, proporcione los siguientes datos:\n- ID de Cliente:\n- Tipo de servicio:\n- Fecha y hora de inicio del problema:\n- Descripción detallada:",
-      "options": [
-        {
-          "label": "Información Completa",
-          "value": "complete",
-          "next_module": "intake",
-          "next_step": "generate_ticket"
-        },
-        {
-          "label": "Falta Información",
-          "value": "incomplete",
-          "next_module": "intake",
-          "next_step": "request_info"
-        }
-      ]
-    },
-    {
-      "id": "request_info",
-      "message": "Se requiere información adicional para procesar el ticket. ¿Qué información está disponible?",
-      "options": [
-        {
-          "label": "Proporcionar Ahora",
-          "value": "provide_now",
-          "next_module": "intake",
-          "next_step": "validate_ticket"
-        },
-        {
-          "label": "Solicitar al Cliente",
-          "value": "request_client",
-          "next_module": "intake",
-          "next_step": "wait_response"
-        }
-      ]
-    },
-    {
-      "id": "wait_response",
-      "message": "El ticket ha sido puesto en espera mientras se recibe información adicional. ¿Ya tiene la información?",
-      "options": [
-        {
-          "label": "Sí, tengo la información",
-          "value": "yes",
-          "next_module": "intake",
-          "next_step": "validate_ticket"
-        },
-        {
-          "label": "Aún no",
-          "value": "no",
-          "next_module": "intake",
-          "next_step": "wait_response"
-        }
-      ]
-    },
-    {
-      "id": "generate_ticket",
-      "message": "Ticket generado exitosamente. Ahora verificaremos si el problema puede ser soportado.",
-      "options": [
-        {
-          "label": "Continuar",
-          "value": "continue",
-          "next_module": "intake",
-          "next_step": "check_supportable"
-        }
-      ]
-    },
-    {
-      "id": "check_supportable",
-      "message": "¿El problema reportado está dentro del alcance del soporte NOC?",
-      "options": [
-        {
-          "label": "Sí, es soportable",
-          "value": "yes",
-          "next_module": "intake",
-          "next_step": "check_requirements"
-        },
-        {
-          "label": "No, no es soportable",
-          "value": "no",
-          "next_module": "intake",
-          "next_step": "request_info"
-        }
-      ]
-    },
-    {
-      "id": "check_requirements",
-      "message": "Verificando que los equipos cumplan con los requisitos mínimos...",
-      "options": [
-        {
-          "label": "Continuar Verificación",
-          "value": "continue",
-          "next_module": "intake",
-          "next_step": "check_degradation"
-        }
-      ]
-    },
-    {
-      "id": "check_degradation",
-      "message": "¿Se detecta degradación de servicio o saturación en la red?",
-      "options": [
-        {
-          "label": "Sí, hay degradación",
-          "value": "yes",
-          "next_module": "diagnosis",
-          "next_step": "analyze_saturation"
-        },
-        {
-          "label": "No, no hay degradación",
-          "value": "no",
-          "next_module": "intake",
-          "next_step": "check_recurrent"
-        }
-      ]
-    },
-    {
-      "id": "check_recurrent",
-      "message": "¿Es una falla recurrente reportada anteriormente?",
-      "options": [
-        {
-          "label": "Sí, es recurrente",
-          "value": "yes",
-          "next_module": "escalation",
-          "next_step": "escalate_engineering"
-        },
-        {
-          "label": "No, es falla nueva",
-          "value": "no",
-          "next_module": "diagnosis",
-          "next_step": "start_diagnosis"
+          "label": "Cliente suspendido o inactivo",
+          "value": "inactivo",
+          "next_module": "escalation"
         }
       ]
     }
   ]
 }
-

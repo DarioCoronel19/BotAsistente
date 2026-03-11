@@ -12,7 +12,6 @@ export default function Options({ options, onSelect, disabled = false }) {
             className="option-button"
             onClick={() => onSelect(option)}
             disabled={disabled}
-            style={{ animationDelay: `${index * 0.1}s` }}
           >
             <span className="option-icon">
               {getOptionIcon(option.value)}
@@ -27,9 +26,9 @@ export default function Options({ options, onSelect, disabled = false }) {
 
 function getOptionIcon(value) {
   const icons = {
+    // Network issues
     no_internet: '📡',
     slow_internet: '🐢',
-    device_issue: '💻',
     wifi_issue: '📶',
     wired_issue: '🔌',
     no_service: '🚫',
@@ -37,10 +36,24 @@ function getOptionIcon(value) {
     packet_loss: '📦',
     high_latency: '⏱️',
     intermittent: '↔️',
+    
+    // Device issues
+    device_issue: '💻',
     hardware: '🔧',
     software: '💿',
+    
+    // Account issues
     password: '🔑',
     account: '👤',
+    
+    // Actions/Status
+    restart: '🔄',
+    escalate: '⬆️',
+    resolve: '✅',
+    close: '❌',
+    cancel: '🚪',
+    
+    // Default
     default: '👉'
   }
   return icons[value] || icons.default

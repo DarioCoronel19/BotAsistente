@@ -1,0 +1,37 @@
+{
+  "module": "fix_actions",
+  "steps": [
+    {
+      "id": "reiniciar_equipo",
+      "message": "Intentar reiniciar la antena o router del cliente.",
+      "options": [
+        {
+          "label": "El servicio se restableció",
+          "value": "resuelto",
+          "next_module": "closure"
+        },
+        {
+          "label": "El problema continúa",
+          "value": "continua",
+          "next_module": "escalation"
+        }
+      ]
+    },
+    {
+      "id": "cambiar_canal",
+      "message": "Cambiar canal inalámbrico por interferencia.",
+      "options": [
+        {
+          "label": "Conexión mejoró",
+          "value": "mejora",
+          "next_module": "closure"
+        },
+        {
+          "label": "Sin mejora",
+          "value": "sin_mejora",
+          "next_module": "escalation"
+        }
+      ]
+    }
+  ]
+}

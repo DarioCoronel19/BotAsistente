@@ -1,0 +1,37 @@
+{
+  "module": "device_diagnostics",
+  "steps": [
+    {
+      "id": "ping_cliente",
+      "message": "Realizar ping a la antena o router del cliente.",
+      "options": [
+        {
+          "label": "Ping responde",
+          "value": "ping_ok",
+          "next_module": "decision_engine"
+        },
+        {
+          "label": "Ping no responde",
+          "value": "ping_fail",
+          "next_module": "field_service"
+        }
+      ]
+    },
+    {
+      "id": "verificar_senal",
+      "message": "Revisar niveles de señal (dBm / PHY).",
+      "options": [
+        {
+          "label": "Señal correcta",
+          "value": "signal_ok",
+          "next_module": "decision_engine"
+        },
+        {
+          "label": "Señal débil",
+          "value": "signal_bad",
+          "next_module": "field_service"
+        }
+      ]
+    }
+  ]
+}

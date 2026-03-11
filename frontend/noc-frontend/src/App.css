@@ -1,5 +1,5 @@
 /* ============================================
-   App Container - Estilos Principales
+   App Container - Main Styles (Green/Blue Theme)
    ============================================ */
 
 .app-container {
@@ -8,22 +8,21 @@
   flex-direction: column;
   background: var(--bg-primary);
   background-image: 
-    radial-gradient(ellipse at top left, rgba(79, 70, 229, 0.08) 0%, transparent 50%),
-    radial-gradient(ellipse at bottom right, rgba(124, 58, 237, 0.06) 0%, transparent 50%);
+    radial-gradient(circle at 20% 80%, rgba(34, 197, 94, 0.08) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(59, 130, 246, 0.08) 0%, transparent 50%),
+    radial-gradient(circle at 40% 40%, rgba(34, 197, 94, 0.05) 0%, transparent 30%);
   transition: background-color var(--transition-normal), background-image var(--transition-normal);
-  outline: 3px solid var(--border-color);
-  outline-offset: -3px;
 }
 
 /* ============================================
-   Header - Barra de Título con Efecto Vidrio
+   Header - Title Bar with Glass Effect
    ============================================ */
 
 .app-header {
   background: var(--bg-glass);
   backdrop-filter: var(--glass-blur);
   -webkit-backdrop-filter: var(--glass-blur);
-  border-bottom: 2px solid var(--border-color);
+  border-bottom: 1px solid var(--border-color);
   padding: 1rem 2rem;
   display: flex;
   justify-content: space-between;
@@ -33,8 +32,6 @@
   top: 0;
   z-index: 100;
   transition: all var(--transition-normal);
-  outline: 2px solid var(--border-color);
-  outline-offset: -2px;
 }
 
 .app-header:hover {
@@ -55,7 +52,7 @@
 .header-icon {
   width: 40px;
   height: 40px;
-  background: var(--accent-gradient);
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
   border-radius: 12px;
   display: flex;
   align-items: center;
@@ -72,7 +69,7 @@
 }
 
 /* ============================================
-   Botón de Cambio de Tema
+   Theme Toggle Button
    ============================================ */
 
 .theme-toggle {
@@ -82,7 +79,7 @@
   padding: 0.625rem 1.125rem;
   background: var(--bg-tertiary);
   border: 1px solid var(--border-color);
-  border-radius: 12px;
+  border-radius: 20px;
   color: var(--text-primary);
   font-size: 0.875rem;
   font-weight: 500;
@@ -105,7 +102,7 @@
 }
 
 .theme-toggle:hover {
-  border-color: var(--accent-color);
+  border-color: var(--primary);
   transform: translateY(-1px);
   box-shadow: var(--shadow-md);
 }
@@ -136,7 +133,7 @@
 }
 
 /* ============================================
-   Área de Contenido Principal
+   Main Content Area
    ============================================ */
 
 .main-content {
@@ -148,7 +145,7 @@
 }
 
 /* ============================================
-   Contenedor del Chat
+   Chat Container
    ============================================ */
 
 .chat-container {
@@ -179,11 +176,11 @@
 }
 
 .chat-container:hover {
-  box-shadow: var(--shadow-xl), 0 0 0 1px var(--accent-color);
+  box-shadow: var(--shadow-xl), 0 0 0 1px var(--primary);
 }
 
 /* ============================================
-   Estado de Carga
+   Loading State
    ============================================ */
 
 .loading-container {
@@ -232,7 +229,7 @@
 }
 
 /* ============================================
-   Pie de Página
+   Footer
    ============================================ */
 
 .app-footer {
@@ -240,13 +237,11 @@
   padding: 1.25rem;
   color: var(--text-muted);
   font-size: 0.8125rem;
-  border-top: 2px solid var(--border-color);
+  border-top: 1px solid var(--border-color);
   background: var(--bg-glass);
   backdrop-filter: var(--glass-blur);
   -webkit-backdrop-filter: var(--glass-blur);
   transition: all var(--transition-normal);
-  outline: 2px solid var(--border-color);
-  outline-offset: -2px;
 }
 
 .app-footer p {
